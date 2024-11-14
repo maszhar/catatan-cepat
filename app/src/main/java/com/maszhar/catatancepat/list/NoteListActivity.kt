@@ -19,7 +19,9 @@ class NoteListActivity : AppCompatActivity() {
     private val noteEditorLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult(), object: ActivityResultCallback<ActivityResult> {
         override fun onActivityResult(result: ActivityResult) {
             if(result.resultCode == RESULT_OK) {
-                Toast.makeText(this@NoteListActivity, "Perubahan catatan diterima", Toast.LENGTH_SHORT).show()
+                val intent = result.data ?: return
+                val title = intent.getStringExtra(NoteEditorActivity.RESULT_TITLE_KEY)
+                Toast.makeText(this@NoteListActivity, "Catatan baru dengan judul: " + title, Toast.LENGTH_SHORT).show()
             }
         }
     })
