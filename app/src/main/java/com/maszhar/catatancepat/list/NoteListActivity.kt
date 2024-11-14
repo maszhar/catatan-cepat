@@ -2,7 +2,11 @@ package com.maszhar.catatancepat.list
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultCallback
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -12,6 +16,14 @@ import com.maszhar.catatancepat.databinding.ActivityNoteListBinding
 import com.maszhar.catatancepat.editor.NoteEditorActivity
 
 class NoteListActivity : AppCompatActivity() {
+    private val noteEditorLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult(), object: ActivityResultCallback<ActivityResult> {
+        override fun onActivityResult(result: ActivityResult) {
+            if(result.resultCode == RESULT_OK) {
+                Toast.makeText(this@NoteListActivity, "Perubahan catatan diterima", Toast.LENGTH_SHORT).show()
+            }
+        }
+    })
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -29,7 +41,7 @@ class NoteListActivity : AppCompatActivity() {
         binding.addNoteButton.setOnClickListener {
             // open note editor
             val intent = Intent(this, NoteEditorActivity::class.java)
-            startActivity(intent)
+            noteEditorLauncher.launch(intent)
         }
     }
 }
