@@ -16,7 +16,6 @@
             <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="#aaaa00"
                 app:title="Catatan" />
         </com.google.android.material.appbar.AppBarLayout>
 
