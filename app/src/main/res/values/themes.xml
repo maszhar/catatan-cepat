@@ -5,6 +5,9 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="floatingActionButtonStyle">@style/MyFabStyle</item>
         <item name="toolbarStyle">@style/MyToolbarStyle</item>
+        <item name="cardViewStyle">@style/MyCardStyle</item>
+        <item name="android:fontFamily">@font/quicksand_regular</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="MyFabStyle" parent="Widget.Material3.FloatingActionButton.Primary">
@@ -20,6 +23,11 @@
     <style name="MyToolbarTitle" parent="TextAppearance.AppCompat.Title">
         <item name="android:fontFamily">@font/quicksand_bold</item>
         <item name="android:textSize">26dp</item>
+    </style>
+
+    <style name="MyCardStyle" parent="CardView">
+        <item name="android:backgroundTint">@color/yellowish</item>
+        <item name="cardCornerRadius">12dp</item>
     </style>
 
     <style name="Theme.CatatanCepat" parent="Base.Theme.CatatanCepat" />
