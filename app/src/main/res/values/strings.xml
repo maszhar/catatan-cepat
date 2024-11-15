@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Catatan Cepat</string>
+    <string name="notes">Catatan</string>
+    <string name="add_note">Tambah Catatan</string>
+    <string name="title">Judul</string>
+    <string name="content">Isi</string>
+    <string name="save">Simpan</string>
 </resources>

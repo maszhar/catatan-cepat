@@ -16,7 +16,7 @@
             <androidx.appcompat.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:title="Catatan" />
+                app:title="@string/notes" />
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,6 +42,7 @@
                 android:id="@+id/add_note_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/add_note"
                 android:layout_marginEnd="28dp"
                 android:layout_marginBottom="64dp"
                 android:src="@drawable/add_icon"
