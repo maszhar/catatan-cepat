@@ -32,6 +32,9 @@ class NoteEditorActivity : AppCompatActivity() {
         // set toolbar as action bar of activity
         setSupportActionBar(binding.toolbar)
 
+        // show back button on toolbar
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         // get view model
         vm = ViewModelProvider(this)[NoteEditorViewModel::class.java]
 
@@ -59,6 +62,11 @@ class NoteEditorActivity : AppCompatActivity() {
             return true
         }
         return false
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressedDispatcher.onBackPressed()
+        return true
     }
 
     companion object {
