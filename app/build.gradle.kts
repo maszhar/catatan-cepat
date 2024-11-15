@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.room.runtime)
+    implementation(libs.viewmodel.ktx)
     ksp(libs.room.compiler)
     implementation(libs.room.ktx)
     testImplementation(libs.junit)

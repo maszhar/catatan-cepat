@@ -37,6 +37,15 @@ class NoteEditorActivity : AppCompatActivity() {
 
         // set vm on layout
         binding.vm = vm
+
+        // set on saved listener
+        vm.setOnSavedListener { note ->
+            val intent = Intent()
+            intent.putExtra(RESULT_TITLE_KEY, note.title)
+            intent.putExtra(RESULT_CONTENT_KEY, note.content)
+
+            setResult(RESULT_OK, intent)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -46,11 +55,7 @@ class NoteEditorActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.save_menu) {
-            val intent = Intent()
-            intent.putExtra(RESULT_TITLE_KEY, vm.title.value ?: "")
-            intent.putExtra(RESULT_CONTENT_KEY, vm.content.value ?: "")
-
-            setResult(RESULT_OK, intent)
+            vm.save()
             return true
         }
         return false
